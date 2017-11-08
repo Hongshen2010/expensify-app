@@ -1,0 +1,5 @@
+# npm package folders
+node_modules/
+
+# os or editor setting
+.DS_Store
