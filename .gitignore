@@ -5,7 +5,4 @@ node_modules/
 .DS_Store
 
 # files created by webpack
-public/bundle.js
-public/bundle.js.map
-public/styles.css
-public/styles.css.map
+public/dist/
