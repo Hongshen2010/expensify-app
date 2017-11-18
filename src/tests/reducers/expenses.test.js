@@ -17,13 +17,13 @@ test('ADD expense test', () => {
     expect(state).toEqual([
         ...expenses,
         action.expense
-    ])
+    ]);
 });
 test('REMOVE by id test', () => {
     const action = {
         type: 'REMOVE_EXPENSE',
         id: expenses[0].id
-    }
+    };
     const state = expenseReducer(expenses, action);
     expect(state).toEqual([
         expenses[1],
@@ -34,7 +34,7 @@ test('REMOVE by id test, not found the same id', () => {
     const action = {
         type: 'REMOVE_EXPENSE',
         id: 100000
-    }
+    };
     const state = expenseReducer(expenses, action);
     expect(state).toEqual(expenses);
 });

@@ -10,13 +10,10 @@ import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 import AppRouter from './routers/AppRouter';
 import moment from 'moment';
+import './firebase/firebase';
 
 
 const store = configureStore();
-
-store.dispatch(addExpense({ description: 'water bill', amount: 0, createdAt: moment().unix()*1000 }));
-store.dispatch(addExpense({ description: 'gas bill', amount: 6, createdAt: moment().unix()*1000 }));
-store.dispatch(addExpense({ description: 'rent', amount: 222, createdAt: moment().unix()*1000 }));
 
 const jsx = (
     <Provider store={store}>
