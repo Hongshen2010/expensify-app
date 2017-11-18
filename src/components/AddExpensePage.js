@@ -8,14 +8,14 @@ const AddExpensePage = (props) => (
         This is from the add expense component
         <h1>Add Expense</h1>
         <ExpenseForm onSubmit={(expense) => {
-            props.dispatch(startAddExpense(expense));
+            props.startAddExpense(expense);
             props.history.push('/');
         }} />
     </div>
 );
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch) => ({
     startAddExpense: (expense) => dispatch(startAddExpense(expense))
-};
+});
 
 export default connect(undefined, mapDispatchToProps)(AddExpensePage);

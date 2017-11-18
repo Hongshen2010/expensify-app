@@ -6,7 +6,7 @@ export const addExpense = (expense) => ({
     expense
 });
 
-const startAddExpense = (expenseData = {}) => {
+export const startAddExpense = (expenseData = {}) => {
     return (dispatch) => {
         const {
             description = '', 

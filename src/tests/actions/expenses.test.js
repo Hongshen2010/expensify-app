@@ -23,32 +23,32 @@ test('test EDIT expense action', () => {
         }
     });
 });
-test('test ADD expense action', () => {
-    const expense = {
-        description: 'testDescription', 
-        note: 'testNote', 
-        amount: 1999, 
-        createdAt: 2999 
-    }
-    const action = addExpense(expense);
-    expect(action).toEqual({
-        type: 'ADD_EXPENSE',
-        expense: {
-            ...expense,
-            id: expect.any(String)
-        }
-    });
-});
-test('test ADD expense DEFAULT action', () => {
-    const action = addExpense();
-    expect(action).toEqual({
-        type: 'ADD_EXPENSE',
-        expense: {
-                    description: '',
-                    note: '',
-                    amount: 0,
-                    createdAt: 0,
-                    id: expect.any(String)
-                }
-    });
-});
+// test('test ADD expense action', () => {
+//     const expense = {
+//         description: 'testDescription', 
+//         note: 'testNote', 
+//         amount: 1999, 
+//         createdAt: 2999 
+//     }
+//     const action = addExpense(expense);
+//     expect(action).toEqual({
+//         type: 'ADD_EXPENSE',
+//         expense: {
+//             ...expense,
+//             id: expect.any(String)
+//         }
+//     });
+// });
+// test('test ADD expense DEFAULT action', () => {
+//     const action = addExpense();
+//     expect(action).toEqual({
+//         type: 'ADD_EXPENSE',
+//         expense: {
+//                     description: '',
+//                     note: '',
+//                     amount: 0,
+//                     createdAt: 0,
+//                     id: expect.any(String)
+//                 }
+//     });
+// });
