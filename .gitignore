@@ -6,3 +6,7 @@ node_modules/
 
 # files created by webpack
 public/dist/
+
+# database config files
+.env.test
+.env.development
