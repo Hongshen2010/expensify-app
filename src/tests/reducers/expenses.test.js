@@ -38,3 +38,11 @@ test('REMOVE by id test, not found the same id', () => {
     const state = expenseReducer(expenses, action);
     expect(state).toEqual(expenses);
 });
+test('Set expenses testing', () => {
+    const action = {
+        type: 'SET_EXPENSES',
+        expenses: [expenses[1]]
+    };
+    const state = expenseReducer(expenses, action);
+    expect(state).toEqual([expenses[1]]);
+});
