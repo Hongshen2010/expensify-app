@@ -5,14 +5,24 @@ import { setTextFilter, sortByAmount, sortByDate, setEndDate, setStartDate } fro
 
 class ExpenseListFilters extends React.Component {
     state = {
-        calendarFocused: null,
+        calendarFocused: null
     }
     onDatesChange = ({ startDate, endDate }) => {
-        this.props.dispatch(setStartDate(startDate));
-        this.props.dispatch(setEndDate(endDate));
+        this.props.setStartDate(startDate);
+        this.props.setEndDate(endDate);
     };
     onFocusChange = (calendarFocused) => {
-        this.setState(() => ({ calendarFocused }));
+        this.setState({ calendarFocused });
+    };
+    onTextChange = (e) => {
+        this.props.setTextFilter(e.target.value);
+    };
+    onSortChange = (e) => {
+        if (e.target.value === 'date') {
+          this.props.sortByDate();
+        } else if (e.target.value === 'amount') {
+          this.props.sortByAmount();
+        }
     };
     render() {
         return (
@@ -45,7 +55,7 @@ class ExpenseListFilters extends React.Component {
                             <option value="amount">Amount</option>
                         </select>
                     </div>
-                    <div>
+                    <div className="input-group__item">
                         <DateRangePicker
                             startDate={this.props.filters.startDate}
                             endDate={this.props.filters.endDate}
@@ -58,9 +68,6 @@ class ExpenseListFilters extends React.Component {
                         />
                     </div>
                 </div>
-                
-                
-                
             </div>
         );
     };
@@ -72,4 +79,12 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps)(ExpenseListFilters);
+const mapDispatchToProps = (dispatch) => ({
+    setTextFilter: (text) => dispatch(setTextFilter(text)),
+    sortByDate: () => dispatch(sortByDate()),
+    sortByAmount: () => dispatch(sortByAmount()),
+    setStartDate: (startDate) => dispatch(setStartDate(startDate)),
+    setEndDate: (endDate) => dispatch(setEndDate(endDate))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ExpenseListFilters);
