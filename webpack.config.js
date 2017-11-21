@@ -14,7 +14,7 @@ module.exports = (env) => {
     const isProduction = env === 'production';
     const CSSExtract = new ExtractTextPlugin('styles.css');
     return {
-        entry: './src/app.js',
+        entry: ['babel-polyfill', './src/app.js'],
         // entry: './src/playground/redux-101.js',
         // entry: './src/playground/redux-expensify.js',
         // entry: './src/playground/destructuring.js',
