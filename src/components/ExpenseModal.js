@@ -6,19 +6,30 @@ import { startRemoveExpense } from '../actions/expenses';
 const ExpenseModal = (props) => (
     <Modal
         isOpen={!!props.selectedExpense}
-        contentLabel="Expense to be deleted"
+        contentLabel="Delete Expense?"
         onRequestClose={props.clearSelectedExpense}
         closeTimeoutMS={200}
         ariaHideApp={false}
+        className="modal"
     >
-        <h3>Expense to be deleted</h3>
+        <h3 className="modal__title">Delete the following Expense?</h3>
+        <h4 className="modal__body">{props.expense.description}</h4>
         <button
+            className="button"
             onClick={() => {
                 props.expense.dispatch(startRemoveExpense(props.expense.expense.id));
-                props.expense.history.push('/');
+                props.history.push('/');
             }}
         >
-            yes, delete it.
+            Yes, delete it.
+        </button>
+        <button
+            className="button button--secondary"
+            onClick={() => {
+                props.history.push('/');
+            }}
+        >
+            No, keep it.
         </button>
     </Modal>
 );
@@ -29,4 +40,4 @@ const mapDispatchToProps = (dispatch, props) => ({
     startRemoveExpense: (data) => dispatch(startRemoveExpense(data))
 });
 
-export default connect(undefined, mapDispatchToProps)(ExpenseModal);
+export default connect(mapStateToProps, mapDispatchToProps)(ExpenseModal);
