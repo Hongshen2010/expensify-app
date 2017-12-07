@@ -37,6 +37,8 @@ class EditExpensePage extends React.Component {
                     >Remove Expense</button>
                     <ExpenseModal 
                         expense={this.props}
+                        dispatch={this.props.dispatch}
+                        match={this.props.match}
                         history={this.props.history}
                         selectedExpense={this.state.selectedExpense}
                         clearSelectedExpense={this.clearSelectedExpense}
