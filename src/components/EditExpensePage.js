@@ -16,7 +16,6 @@ class EditExpensePage extends React.Component {
     this.setState({ selectedExpense: null });
   }
   render() {
-    console.log(this.props);
     return (
       <div>
         <div className="page-header">
