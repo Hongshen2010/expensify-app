@@ -10,6 +10,9 @@ import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
 
 export const history = createHistory();
+// history.listen = () => {
+//     console.log('url changed');
+// };
 
 const AppRouter = () => (
     <Router history={history}>
