@@ -5,7 +5,7 @@ import { startRemoveExpense } from '../actions/expenses';
 
 const ExpenseModal = (props) => {
   const { description, id } = props.expense;
-  const { match } = props;
+  const { match, history } = props;
   return (
     <Modal
       isOpen={!!props.selectedExpense}
@@ -21,11 +21,11 @@ const ExpenseModal = (props) => {
         className="button"
         onClick={() => {
           props.startRemoveExpense(id);
-          props.history.push('/');
+          history.push('/');
         }}
       >
         Yes, delete it.
-            </button>
+      </button>
       <button
         className="button button--secondary"
         onClick={() => {
@@ -42,6 +42,6 @@ const mapStateToProps = (state, props) => ({
   expense: state.expenses.find((expense) => expense.id === props.match.params.id)
 });
 const mapDispatchToProps = (dispatch, props) => ({
-  startRemoveExpense: (data) => dispatch(startRemoveExpense(data))
+  startRemoveExpense: (id) => dispatch(startRemoveExpense(id))
 });
 export default connect(mapStateToProps, mapDispatchToProps)(ExpenseModal);
